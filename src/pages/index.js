@@ -108,7 +108,7 @@ const [result, setResult] = useState('');
             >
               <Image
                 src="/images/Paper.png"
-                alt="Rock"
+                alt="Paper"
                 width={200}
                 height={200}
                 draggable={false}
@@ -122,7 +122,7 @@ const [result, setResult] = useState('');
             >
               <Image
                 src="/images/Scissors.png"
-                alt="Rock"
+                alt="Scissors"
                 width={200}
                 height={200}
                 draggable={false}
