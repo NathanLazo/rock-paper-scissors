@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from "next/head";
 import Image from "next/image";
 
@@ -27,7 +27,6 @@ const [result, setResult] = useState('');
         alert('Something went wrong');
         break;
     }
-    getResult();
   }
 
 
@@ -62,6 +61,12 @@ const [result, setResult] = useState('');
     }
   }
 
+  useEffect(() => {
+    if (playerChoice !== '' && computerChoice !== '') {
+      getResult();
+    }
+  } , [playerChoice, computerChoice]);
+
 
   function endGame(e) {
     e.preventDefault();
@@ -83,7 +88,7 @@ const [result, setResult] = useState('');
         <meta description="Rock Paper Scissors" />
       </Head>
       <main>
-        <h1 className="text-white font-extrabold text-3xl mt-8 flex justify-center">Rock paper Scissors</h1>
+        <h1 className="text-white font-extrabold text-3xl mt-8 flex justify-center">Rock Paper Scissors</h1>
         <div className="container flex flex-col mx-auto mt-24 lg:px-32">
           <div className="w-auto flex justify-between">
             <button className="border border-zinc-900 shadow-2xl rounded-md focus:border-zinc-700 hover:bg-zinc-900"
@@ -96,7 +101,7 @@ const [result, setResult] = useState('');
                 src="/images/Rock.png"
                 alt="Rock"
                 width={200}
-                height={200}
+                height={150}
                 draggable={false}
               />
             </button>
@@ -110,7 +115,7 @@ const [result, setResult] = useState('');
                 src="/images/Paper.png"
                 alt="Paper"
                 width={200}
-                height={200}
+                height={170}
                 draggable={false}
               />
             </button>
@@ -130,12 +135,13 @@ const [result, setResult] = useState('');
             </button>
           </div>
           <div className="flex flex-col justify-center mt-12">
-            <div className='text-gray-200 mx-auto'>Score: {score}</div>
+            <div className='text-yellow-200 mx-auto text-lg'>IA: {computerChoice}</div>
+            <div className='text-gray-200 mx-auto text-lg'>Score: {score}</div>
             { result== "You Lose" && <div className='text-red-500 text-2xl uppercase font-bold mx-auto'>{result}</div>}
             { result== "You Win" && <div className='text-green-400 text-2xl uppercase font-bold mx-auto'>{result}</div>}
             { result== "Draw" && <div className='text-white text-2xl uppercase font-bold mx-auto'>{result}</div>}
             <button 
-              className="text-4xl bg-gray-600 w-96 mx-auto mt-6"
+              className="text-4xl bg-gray-600 text-gray-300 w-72 mx-auto mt-6 rounded-md py-2"
               onClick={endGame}
             >
               RESET
