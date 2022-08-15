@@ -93,7 +93,7 @@ const [result, setResult] = useState('');
               }}
             >
               <Image
-                src="/images/rock.png"
+                src="/images/Rock.png"
                 alt="Rock"
                 width={200}
                 height={200}
