@@ -149,6 +149,7 @@ const [result, setResult] = useState('');
           </div>
         </div>
       </main>
+      <p className='text-indigo-800 text-xs font-bold absolute bottom-0 left-0 w-96'>Nathan was here</p>
     </div>
   );
 }
